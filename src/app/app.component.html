@@ -326,7 +326,10 @@
 </div>
 
 <div class="content" role="main">
-
+  <button (click)="funcion()" >{{boton}}</button>
+  <p *ngIf="condicion ; else elseBlock">El valor del booleano es {{condicion}}</p>
+  <ng-template #elseBlock>Se activa con el Else</ng-template>
+<div *ngIf="condicion">
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
 
@@ -342,6 +345,16 @@
     </svg>
 
     <span>{{ title }} app is running!</span>
+    <span><app-prueba></app-prueba></span>
+
+    <ul [ngSwitch]="dias_semana">
+      <li *ngSwitchCase="'Lunes'">Primer dia de la semana</li>
+      <li *ngSwitchCase="'Martes'">Segundo dia de la semana</li>
+      <li *ngSwitchCase="'Miercoles'">Tercero dia de la semana</li>
+      <li *ngSwitchDefault>Dias de la semana</li>
+    </ul>
+
+    <input type="text" [(ngModel)]="dias_semana">
 
     <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
       <title>Rocket Ship Smoke</title>
@@ -349,11 +362,16 @@
     </svg>
 
   </div>
-
+</div>
+<div [ngStyle]="{'background':color ? color:'red'}">Texto Fondo Rojo</div>
+      <button (click)="vblecolor = 'yellow'" [ngClass]="vblecolor">Amarillo</button>
+      <button (click)="vblecolor = 'blue'" [ngClass]="vblecolor">Azul</button>
+      <button (click)="vblecolor = 'purple'" [ngClass]="vblecolor">Morado</button>
   <!-- Resources -->
   <h2>Resources</h2>
+  <span><app-libros></app-libros></span>
   <p>Here are some links to help you get started:</p>
-
+  <span><app-prueba2></app-prueba2></span>
   <div class="card-container">
     <a class="card" target="_blank" rel="noopener" href="https://angular.io/tutorial">
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
